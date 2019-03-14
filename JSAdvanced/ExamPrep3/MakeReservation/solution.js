@@ -10,6 +10,10 @@ function makeReservation(){
     let $divContainerE = $('#container');
     
     let $submitBtnEl = $('#submit').on('click', function(){
+
+        if(!$fullNameEl.val() || !$emailEl.val()){
+            return;
+        }
         
         let $nameLi = $(`<li>Name: ${$fullNameEl.val()}</li>`);
         let $emailLi = $(`<li>E-mail: ${$emailEl.val()}</li>`);
@@ -62,12 +66,12 @@ function makeReservation(){
 
             if(e.target.value === 'creditCard'){
                 
-                let $divCardEl = $('<div class="inputLabel">Card Number</div><br>');
-                $divCardEl.append($('<input>'));
-                let $divExDateEl = $('<div class="inputLabel">Expiration Date</div><br>');
-                $divExDateEl.append($('<input>'));
-                let $divSecNumberEl = $('<div class="inputLabel">Security Number</div><br>');
-                $divSecNumberEl.append($('<input>'));
+                let $divCardEl = $('<div class="inputLabel">Card Number<input></div><br>');
+               // $divCardEl.append($('<input>'));
+                let $divExDateEl = $('<div class="inputLabel">Expiration Date<input></div><br>');
+               // $divExDateEl.append($('<input>'));
+                let $divSecNumberEl = $('<div class="inputLabel">Security Numbers<input></div><br>');
+                //$divSecNumberEl.append($('<input>'));
                 let $br = $('<br>');
     
                 let $checkOutBtn = $('<button id="checkOut">Check Out</button>');
@@ -82,18 +86,14 @@ function makeReservation(){
             }else{
                 let $p = $('<p>You have 48 hours to transfer the amount to:</p>');
                 $p.append($('<br>'));
-                $p.append('IBAN: GR96 0810 0010 0000 4567 890');
+                $p.append('IBAN: GR96 0810 0010 0000 0123 4567 890');
                 let $checkOutBtn = $('<button id="checkOut">Check Out</button>');
                 $('#extraDetails').append($p).append($checkOutBtn);
                 
                 $checkOutBtn.on('click', checkOut);
 
-            }
-           
-
-            
+            } 
         });
-
     });
     
     
