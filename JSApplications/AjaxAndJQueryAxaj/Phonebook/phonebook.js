@@ -34,19 +34,10 @@ function attachEvents(){
 
         $.ajax({
             url: 'https://phonebook-cd550.firebaseio.com/Phonebook/' + contactId +'.json',
-            method: 'DELETE',
-            success: result,
-            error: notResult
+            method: 'DELETE'
+           
         })
     }
-
-    function result(data){
-        console.log(data);
-    }
-    function notResult(data){
-        console.log(data);
-    }
-
     function create(){
        let obj = {
            "person": $personEl.val(),
