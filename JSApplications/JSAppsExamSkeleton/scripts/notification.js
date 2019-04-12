@@ -1,19 +1,19 @@
 const notifications = (() => {
   $(document).on({
-    ajaxStart: () => $('#loading').fadeIn(),
-    ajaxStop: () => $('#loading').fadeOut()
+    ajaxStart: () => $('#loadingBox').fadeIn(),
+    ajaxStop: () => $('#loadingBox').fadeOut()
   })
 
   function showSuccess(message) {
-    let successBox = $('#info');
-    successBox.text(message);
+    let successBox = $('#infoBox');
+    successBox.find('span').text(message);
     successBox.fadeIn();
     successBox.fadeOut(3000);
   }
 
   function showError(message) {
-    let errorBox = $('#error');
-    errorBox.text(message);
+    let errorBox = $('#errorBox');
+    errorBox.find('span').text(message);
     errorBox.fadeIn();
     errorBox.fadeOut(3000);
   }
